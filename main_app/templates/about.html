@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleabout.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="dashboard">
+            <a href="/home"><img src="static/images/zevman.jpg" alt="Zevin Home"></a>
+            <!--update all nav links-->
+            <a href="/home">LISTEN</a>
+            <a href="/home">SHOWS</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/merch">MERCH</a>
+            <a href="/merch/cart">CART</a>
+            {%if request.session.user_id%}
+            <a href="/login/logout">LOGOUT</a>
+            {%endif%}
+            {%if not request.session.user_id%}
+            <a href="/login">LOGIN</a>
+            {%endif%}
+        </div>
+        <h1>ZEVIN MUSIC</h1>
+
+        <h2>Artist Bio</h2>
+        <p>Kevin Zeiger (a.k.a. ZEVIN) is a guitarist, bassist, pianist, accordionist, vocalist, and songwriter based in
+            the Chicagoland area. In 2014 he debuted his first solo release under the name "Zevin," and has since
+            published four additional releases (listed below).</p>
+        <p>ZEVIN is an ever-evolving project. There is no 'true' musical direction with ZEVIN, just melodic
+            possibilities. As a fan of many MANY different genres, the aim is to create a vast array of different sounds
+            and translate them to the live stage as fully as possible. Drawing influence from several different areas
+            (not just music) truly helps to craft something unique, so expect the unexpected.</p>
+
+        <h2>Find me at other places on the internet</h2>
+        <div id="follow">
+            <!--complete-->
+            <a href="https://zevin.bandcamp.com/"><img src="static/images/bandcamp.png" alt="Zevin Bandcamp"></a>
+            <a href="https://www.facebook.com/zevintunes"><img src="static/images/facebook.png"
+                    alt="Zevin Facebook"></a>
+            <a href="https://www.instagram.com/zevin_actionman/"><img src="static/images/instagram.png"
+                    alt="Zevin Instagram"></a>
+            <a href="https://www.youtube.com/channel/UCL9-xxsqprPLDQDc_CWEqqw"><img src="static/images/youtube.jpg"
+                    alt="Zevin Youtube"></a>
+        </div>
+        <!--follow end-->
+
+        <div class="top-border"></div>
+
+        <footer>
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+        </footer>
+    </div>
+    <!--wrapper end-->
+</body>
+
+</html>

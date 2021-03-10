@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylemerch.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="dashboard">
+            <a href="/home"><img src="/static/images/zevman.jpg" alt="Zevin Home"></a>
+            <a href="/home">LISTEN</a>
+            <a href="/home">SHOWS</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/merch">MERCH</a>
+            <a href="/merch/cart">CART</a>
+            {%if request.session.user_id%}
+            <a href="/login/logout">LOGOUT</a>
+            {%endif%}
+            {%if not request.session.user_id%}
+            <a href="/login">LOGIN</a>
+            {%endif%}
+        </div>
+        <h1>ZEVIN MUSIC</h1>
+        {% if messages %}
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            <a href="/merch/cart">View cart</a>
+            <h2>Apparel</h2>
+
+            <div class="two-up">
+                <div class="merch_item">
+                    <img src="/static/images/tee.jpg" alt="t-shirt">
+                    <div class="blocking">
+                        <h4>T-Shirt</h4> <!--price_1IFovvIMiJ4aPh2LKrjR6jbi-->
+                        <p> Gildan, 100% cotton</p>
+                        <p>$19.99</p>
+                        <form action="/merch/addtocart/8" method="POST">
+                            {%csrf_token%}
+                            <select name="size" id="">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                                <option value="xl">XL</option>
+                                <option value="2xl">2XL</option>
+                            </select>
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/hoodie.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>Hoodie</h4> <!--price_1IG9mhIMiJ4aPh2LuycmwghS-->
+                        <p>Zip-up, 100% cotton</p>
+                        <p>$39.99</p>
+                        <form action="/merch/addtocart/9" method="POST">
+                            {%csrf_token%}
+                            <select name="size" id="">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                                <option value="xl">XL</option>
+                                <option value="2xl">2XL</option>
+                            </select>
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/beanie.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>Beanie</h4> <!--price_1IG9osIMiJ4aPh2LsuHI7IBx-->
+                        <p>100% cotton - One size fits all</p>
+                        <p>$24.99</p>
+                        <form action="/merch/addtocart/2" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Audio</h2>
+            <div class="two-up">
+                <div class="merch_item">
+                    <img src="/static/images/bummer.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>A Modern Bummer (CD)</h4> <!--price_1IG9pYIMiJ4aPh2L7QWz9MBC-->
+                        <p>Released October 2020</p>
+                        <p>$9.99</p>
+                        <form action="/merch/addtocart/1" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/bummer.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>A Modern Bummer (Vinyl)</h4> <!--price_1IG9pwIMiJ4aPh2LizlehKvS-->
+                        <p>Released October 2020</p>
+                        <p>$15.99</p>
+                        <form action="/merch/addtocart/3" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/megaman.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>Mega Man Remixes: Volume 1</h4> <!--price_1IG9qZIMiJ4aPh2L0KBK6gFU-->
+                        <p>Released March 2019</p>
+                        <p>$7.99</p>
+                        <form action="/merch/addtocart/4" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/penguin.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>The Lonely Penguin</h4> <!--price_1IG9qyIMiJ4aPh2LuvKLDXzi-->
+                        <p>Released September 2017</p>
+                        <p>$9.99</p>
+                        <form action="/merch/addtocart/5" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/selftitled.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>Self-Titled Debut EP</h4> <!--price_1IG9rPIMiJ4aPh2LeQqxnnTm-->
+                        <p>Released April 2017</p>
+                        <p>$6.99</p>
+                        <form action="/merch/addtocart/6" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="merch_item">
+                    <img src="/static/images/starlight.jpg" alt="image goes here">
+                    <div class="blocking">
+                        <h4>By Starlight (Single) (Smashing Pumpkins Cover)</h4> <!--price_1IG9rtIMiJ4aPh2LF8YPBKNz-->
+                        <p>Released November 2014</p>
+                        <p>$2.99</p>
+                        <form action="/merch/addtocart/7" method="POST">
+                            {%csrf_token%}
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-border"></div>
+
+            <div id="footer">
+                <a href="#dashboard">BACK TO TOP</a>
+            </div>
+
+    </div>
+    <!--wrapper end-->
+</body>
+
+</html>

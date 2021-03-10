@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="dashboard">
+            <a href="/home"><img src="/static/images/zevman.jpg" alt="Zevin Home"></a>
+        <!--update all nav links-->
+        <a href="/home">LISTEN</a>
+        <a href="/home">SHOWS</a>
+        <a href="/about">ABOUT</a>
+        <a href="/contact">CONTACT</a>
+        <a href="/login">MAILING LIST</a>
+        <a href="/merch">MERCH</a>
+        <a href="/merch/cart">CART</a>
+        </div>
+
+    <h1>Checkout</h1>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </thead>
+        {%for thingy in cart%}
+        <tr>
+            <td>{{thingy.merch_item.name}}</td>
+            <td>{{thingy.merch_item.price}}</td>
+            <td>Hmm...</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <p>Items total: ${{total_price}}</p>
+    <p>Tax: ${{tax}}</p>
+    <p>Shipping: $6.99</p>
+    <p>Total: ${{grand_total}}</p>
+    <p><a href="/merch/cart">Back to Cart</a></p>
+    <!--If logged in, populate shipping info and request billing info-->
+    <h2>Shipping & Billing Info</h2>
+    <h3>Shipping Info</h3>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </thead>
+        <tr>
+            <td>Sample Guy</td>
+            <td>123 Main St</td>
+            <td>Chicago</td>
+            <td>IL</td>
+            <td>60607</td>
+        </tr>
+    </table>
+    <!-- <h3>Billing Info</h3> -->
+    <!--We'll need to look into CC validation/payment processing, and talk to Ryan about how in-depth this needs to be (there's obviously no way we'll make it functional, but how close do we need it?)-->
+    <!-- <form action="/merch/checkout/{{order.id}}/process_order">
+        Credit Card Number: <input type="text"><br>
+        Expiration: <input type="text"> CVV: <input type="integer"><br>
+        Cardholder's Full Name: <input type="text"><br>
+
+        <div class="top-border"></div>
+
+        <button type="submit">Place Order</button>
+    </form> -->
+    <!--If guest, prompt for shipping and billing info-->
+    <h2>Guest Checkout</h2>
+    <form action="/payment/">
+        <h3>Shipping Info</h3>
+            First name: <input type="text"><br>
+            Last name: <input type="text"><br>
+            Email: <input type="text"><br>
+            Password (8+ characters): <input type="password"><br>
+            Confirm password: <input type="password"><br>
+            Address: <input type="text"><br>
+            Address line 2 (optional): <input type="text"><br>
+            City: <input type="text"><br>
+            State: <select name="" id="">
+                <option value="">AL</option>
+                <option value="">AK</option>
+                <option value="">AZ</option>
+                <option value="">AR</option>
+                <option value="">CA</option>
+                <option value="">CO</option>
+                <option value="">CT</option>
+                <option value="">DE</option>
+                <option value="">FL</option>
+                <option value="">GA</option>
+                <option value="">HI</option>
+                <option value="">ID</option>
+                <option value="">IL</option>
+                <option value="">IN</option>
+                <option value="">IA</option>
+                <option value="">KS</option>
+                <option value="">KY</option>
+                <option value="">LA</option>
+                <option value="">ME</option>
+                <option value="">MD</option>
+                <option value="">MA</option>
+                <option value="">MI</option>
+                <option value="">MN</option>
+                <option value="">MS</option>
+                <option value="">MO</option>
+                <option value="">MT</option>
+                <option value="">NE</option>
+                <option value="">NV</option>
+                <option value="">NH</option>
+                <option value="">NJ</option>
+                <option value="">NM</option>
+                <option value="">NY</option>
+                <option value="">NC</option>
+                <option value="">ND</option>
+                <option value="">OH</option>
+                <option value="">OK</option>
+                <option value="">OR</option>
+                <option value="">PA</option>
+                <option value="">RI</option>
+                <option value="">SC</option>
+                <option value="">SD</option>
+                <option value="">TN</option>
+                <option value="">TX</option>
+                <option value="">UT</option>
+                <option value="">VT</option>
+                <option value="">VA</option>
+                <option value="">WA</option>
+                <option value="">WV</option>
+                <option value="">WI</option>
+                <option value="">WY</option>
+            </select><br>
+            Zip: <input type="text"><br>
+            Join mailing list?<br>
+            <input type="radio" name="mailing_list" value="yes">
+            <label for="yes">Hell yeah!</label>
+            <input type="radio" name="mailing_list" value="no">
+            <label for="no">No thank you</label><br>
+        <!-- <h3>Billing Info</h3>
+            Credit Card Number: <input type="text"><br>
+            Expiration: <input type="text"> CVV: <input type="integer"><br>
+            Cardholder's Full Name: <input type="text"><br> -->
+
+            <div class="top-border"></div>
+            
+        <button type="submit">Continue to Payment</button>
+    </form>
+
+    <div class="top-border"></div>
+
+    <footer>
+        <a href="/contact">Contact</a>
+        <a href="/login">Join Mailing List</a>
+        <a href="/about">About</a>
+    </footer>
+    </div><!--wrapper end-->
+</body>
+</html>

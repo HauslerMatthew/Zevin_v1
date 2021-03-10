@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zevin</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylehome.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="dashboard">
+            <a href="#dashboard"><img src="static/images/zevman.jpg" alt="Zevin Home"></a>
+            <!--update all nav links-->
+            <a href="#listen">LISTEN</a>
+            <a href="#shows">SHOWS</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/merch">MERCH</a>
+            <a href="/merch/cart">CART</a>
+            {%if request.session.user_id%}
+            <a href="/login/logout">LOGOUT</a>
+            {%endif%}
+            {%if not request.session.user_id%}
+            <a href="/login">LOGIN</a>
+            {%endif%}
+        </div>
+        <!--dashboard end-->
+
+        <h1>ZEVIN MUSIC </h1>
+
+        <h2>LISTEN</h2>
+        <div id="listen">
+            <!--complete-->
+            <iframe style="border: 0; width: 700px; height: 274px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=2633101165/size=large/bgcol=333333/linkcol=4ec5ec/artwork=small/transparent=true/"
+                seamless><a href="https://zevin.bandcamp.com/album/a-modern-bummer">A Modern Bummer by
+                    ZEVIN</a></iframe>
+
+            <iframe style="border: 0; width: 700px; height: 307px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album=308640294/size=large/bgcol=333333/linkcol=4ec5ec/artwork=small/transparent=true/"
+                seamless><a
+                    href="https://zevin.bandcamp.com/album/mega-man-remixes-volume-1-electronic-instrumental">Mega Man
+                    Remixes: Volume 1 [electronic instrumental] by ZEVIN</a></iframe>
+
+            <iframe style="border: 0; width: 700px; height: 250px;"
+                src="https://bandcamp.com/EmbeddedPlayer/track=134280633/size=large/bgcol=333333/linkcol=4ec5ec/tracklist=false/artwork=small/transparent=true/"
+                seamless><a href="https://zevin.bandcamp.com/track/the-lonely-penguin">The Lonely Penguin by
+                    ZEVIN</a></iframe>
+
+        </div>
+        <!--listen end-->
+
+        <h2>SHOWS</h2>
+        <div id="shows">
+            <!--complete-->
+            <ul>
+                <li>Live shows TBD when the world is safe again. Check out my garage shows in the meantime!</li>
+                <li>
+                    <div class="top-border"></div>
+                </li>
+                <li><a href="https://fb.watch/3eVGNxsOgE/">Live from a Garage III! Dec 12th, 2020</a></li>
+                <li><a href="https://fb.watch/3eVDkXohni/">Live from a Garage II! Sept 13th, 2020</a></li>
+                <li><a href="https://fb.watch/3eVxTg7PrR/">Live from a Garage! May 24th, 2020</a></li>
+            </ul>
+        </div>
+        <!--shows end-->
+
+        <div class="top-border"></div>
+
+        <h2>FOLLOW</h2>
+        <div id="follow">
+
+            <a href="https://zevin.bandcamp.com/"><img src="static/images/bandcamp.png" alt="Zevin Bandcamp"></a>
+            <a href="https://www.facebook.com/zevintunes"><img src="static/images/facebook.png"
+                    alt="Zevin Facebook"></a>
+            <a href="https://www.instagram.com/zevin_actionman/"><img src="static/images/instagram.png"
+                    alt="Zevin Instagram"></a>
+            <a href="https://www.youtube.com/channel/UCL9-xxsqprPLDQDc_CWEqqw"><img src="static/images/youtube.jpg"
+                    alt="Zevin Youtube"></a>
+        </div>
+
+
+        <div class="top-border"></div>
+        <div id="footer">
+            <a href="#dashboard">BACK TO TOP</a>
+            <!--update all nav links-->
+        </div>
+        <!--footer end-->
+    </div>
+    <!--wrapper end-->
+</body>
+
+</html>

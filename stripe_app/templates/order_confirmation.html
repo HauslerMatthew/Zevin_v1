@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you for your purchase!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+    <h1>Order #123456 confirmed!</h1>
+    <h3>Thank you for your order! You will be notified as soon as your items have shipped.</h3>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </thead>
+        <tr>
+            <td>Beanie</td>
+            <td>$24.99</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>A Modern Bummer (Vinyl)</td>
+            <td>$15.99</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Hoodie (M)</td>
+            <td>$39.99</td>
+            <td>2</td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>Subtotal:</td>
+            <td>$128.96</td>
+        </tr>
+        <tr>
+            <td>Tax:</td>
+            <td>$6.99</td>
+        </tr>
+        <tr>
+            <td>Shipping:</td>
+            <td>$6.99</td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td>$148.85</td>
+        </tr>
+    </table>
+
+    <div class="top-border"></div>
+
+    <div id="footer">
+        <a href="/home">RETURN TO SITE</a>
+
+    </div>  
+    </div><!--wrapper end-->
+</body>
+</html>

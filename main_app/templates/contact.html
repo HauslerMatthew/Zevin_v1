@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylecontact.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="dashboard">
+            <a href="/home"><img src="static/images/zevman.jpg" alt="Zevin Home"></a>
+            <!--update all nav links-->
+            <a href="/home">LISTEN</a>
+            <a href="/home">SHOWS</a>
+            <a href="/about">ABOUT</a>
+            <a href="/contact">CONTACT</a>
+            <a href="/merch">MERCH</a>
+            <a href="/merch/cart">CART</a>
+            {%if request.session.user_id%}
+            <a href="/login/logout">LOGOUT</a>
+            {%endif%}
+            {%if not request.session.user_id%}
+            <a href="/login">LOGIN</a>
+            {%endif%}
+        </div>
+        <!--dashboard end-->
+
+        <h1>DONT BE A STRANGER!</h1>
+        <h2>Booking and General Inquiries:</h2>
+        <h3>Please email: <a href="mailto: zevinbooking@gmail.com">zevinbooking@gmail.com</a></h3>
+        <h2>Social Media</h2>
+        <div id="follow">
+            <a href="https://zevin.bandcamp.com/"><img src="static/images/bandcamp.png" alt="Zevin Bandcamp"></a>
+            <a href="https://www.facebook.com/zevintunes"><img src="static/images/facebook.png"
+                    alt="Zevin Facebook"></a>
+            <a href="https://www.instagram.com/zevin_actionman/"><img src="static/images/instagram.png"
+                    alt="Zevin Instagram"></a>
+            <a href="https://www.youtube.com/channel/UCL9-xxsqprPLDQDc_CWEqqw"><img src="static/images/youtube.jpg"
+                    alt="Zevin Youtube"></a>
+        </div>
+        <h3>Make sure to join the <a href="/login">mailing list</a> to stay up to date with news and updates!</h3>
+
+        <div class="top-border"></div>
+
+        <footer>
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+        </footer>
+</body>
+
+</html>

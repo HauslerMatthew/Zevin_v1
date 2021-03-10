@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+    <div id="dashboard">
+        <a href="/home"><img src="/static/images/zevman.jpg" alt="Zevin Home"></a>
+        <!--update all nav links-->
+        <a href="/home">LISTEN</a>
+        <a href="/home">SHOWS</a>
+        <a href="/about">ABOUT</a>
+        <a href="/contact">CONTACT</a>
+        <a href="/merch">MERCH</a>
+        {%if request.session.user_id%}
+        <a href="/login/logout">LOGOUT</a>
+        {%endif%}
+        {%if not request.session.user_id%}
+        <a href="/login">LOGIN</a>
+        {%endif%}
+    </div>
+    <h1>Your Cart</h1>
+    <p>Please review your order before continuing</p>
+    <table>
+        <thead>
+            <th>Item</th> <!--Make sure this includes size, where applicable-->
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Update/Remove</th>
+        </thead>
+        {%if not 'current_cart_id' in request.session%}
+        <tr>
+            <td colspan=4><h2>Your cart is empty, go buy something!</h2></td>
+        </tr>
+        {%endif%}
+        {%if cart.count == 0%}
+        <tr>
+            <td colspan=4><h2>Your cart is empty, go buy something!</h2></td>
+        </tr>
+        {%endif%}
+        {%for thingy in cart%}
+        <tr>
+            <td>{{thingy.merch_item.name}}</td>
+            <td>{{thingy.merch_item.price}}</td>
+            <td>Hmm...</td>
+                <!-- <form action=""><a href="">Update</a></form> -->
+                <form action="/merch/remove_item/{{thingy.id}}" method="POST">
+                    {%csrf_token%}
+                    <td><button type="submit">Remove</button></td>
+                </form>
+        </tr>
+        {%endfor%}
+    </table>
+    {%if cart.count > 0%}
+    <p>Items total: ${{total_price}}</p>
+    <p>Estimated Tax: ${{tax}}</p>
+    <p>(Shipping calculated at checkout)</p>
+    <p>Subtotal: ${{subtotal}}</p>
+
+    <button><a href="/merch/checkout/{{cart_id}}">Continue to Checkout</a></button>
+    <form action="/merch/clearsession">
+        <button type=submit>Empty Cart</button>
+    </form>
+    {%endif%}
+    <div class="top-border"></div>
+    
+    <footer>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+    </footer>
+    </div><!--wrapper end-->
+</body>
+</html>

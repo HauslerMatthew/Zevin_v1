@@ -1,0 +1,9 @@
+1 - Modern Bummer CD "modernbummer" MBC
+2 - Beanie "beanie" BN
+3 - Modern Bummer Vinyl "modernbummerv" MBV
+4 - Megaman "megaman" MM
+5 - Lonely Penguin "penguin" LP
+6 - Self-titled EP "selftitled" ST
+7 - Starlight "starlight" SL
+8 - T-shirt "tshirt" TS
+9 - Hoodie "hoodie" HD
